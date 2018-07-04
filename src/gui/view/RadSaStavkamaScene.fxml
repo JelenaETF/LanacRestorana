@@ -11,8 +11,8 @@
       <TableView fx:id="stavkeTable" layoutX="14.0" layoutY="26.0" prefHeight="251.0" prefWidth="299.0">
         <columns>
           <TableColumn fx:id="nazivColumn" prefWidth="124.0" text="Naziv" />
-          <TableColumn fx:id="kategorijaColumn" prefWidth="93.0" text="Kategorija" />
-            <TableColumn fx:id="cijenaColumn" text="Cijena" />
+          <TableColumn fx:id="kategorijaColumn" prefWidth="101.0" text="Kategorija" />
+            <TableColumn fx:id="cijenaColumn" prefWidth="72.0" text="Cijena" />
         </columns>
       </TableView>
       <Button layoutX="327.0" layoutY="193.0" mnemonicParsing="false" onAction="#pregledajSastav" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Pregledaj sastav" />
