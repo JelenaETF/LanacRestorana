@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="240.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminSceneController">
+   <children>
+      <Button layoutX="123.0" layoutY="39.0" mnemonicParsing="false" onAction="#otvoriRadSaStavkama" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Rad sa stavkama" />
+      <Button layoutX="123.0" layoutY="100.0" mnemonicParsing="false" onAction="#otvoriNarudzbuNamirnica" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" />
+      <Button layoutX="123.0" layoutY="161.0" mnemonicParsing="false" onAction="#odjaviSe" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Odjavi se" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane alignment="center" hgap="10" prefHeight="274.0" prefWidth="340.0" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginSceneController">
+   <children>
+      <AnchorPane prefHeight="229.0" prefWidth="277.0">
+         <children>
+            <TextField fx:id="usernameField" layoutX="43.0" layoutY="90.0" prefHeight="25.0" prefWidth="193.0" promptText="username" />
+            <Button layoutX="114.0" layoutY="177.0" mnemonicParsing="false" onAction="#checkLoginData" style="-fx-background-color: #cccccc;" text="Log in" />
+            <PasswordField fx:id="passwordField" layoutX="43.0" layoutY="134.0" prefHeight="25.0" prefWidth="193.0" promptText="password" />
+            <ImageView fitHeight="63.0" fitWidth="66.0" layoutX="106.0" layoutY="14.0">
+               <image>
+                  <Image url="@cutmypic.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="24.0" layoutY="5.0" orientation="VERTICAL" prefHeight="211.0" prefWidth="0.0" />
+            <Separator layoutX="251.0" layoutY="3.0" orientation="VERTICAL" prefHeight="211.0" prefWidth="0.0" />
+         </children></AnchorPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

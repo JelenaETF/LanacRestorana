@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="223.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BlagajnikSceneController">
+   <children>
+      <Button layoutX="115.0" layoutY="33.0" mnemonicParsing="false" onAction="#otvoriDostavu" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Dostava" />
+      <Button layoutX="115.0" layoutY="94.0" mnemonicParsing="false" onAction="#otvoriIzdavanjeRacuna" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Izdavanje racuna" />
+      <Button layoutX="115.0" layoutY="154.0" mnemonicParsing="false" onAction="#odjaviSe" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Odjavi se" />
+   </children>
+</AnchorPane>
