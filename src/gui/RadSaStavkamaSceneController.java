@@ -3,10 +3,15 @@ package gui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.modelCustom.StavkaRestoranCustom;
 import repository.repositoryCustom.StavkaRestoranRepositoryCustom;
 
@@ -44,7 +49,18 @@ public class RadSaStavkamaSceneController implements Initializable {
     }
 
     @FXML
-    public void dodajStavku(){}
+    public void dodajStavku(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("view/DodavanjeNoveStavkeScene.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void izmijeniStavku(){}
