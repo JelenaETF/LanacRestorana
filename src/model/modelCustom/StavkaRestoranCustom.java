@@ -4,11 +4,13 @@ import java.math.BigDecimal;
 
 public class StavkaRestoranCustom {
 
+    private Integer stavkaId;
     private String nazivStavke;
     private String nazivKategorije;
     private BigDecimal cijena;
 
-    public StavkaRestoranCustom(String nazivStavke, String nazivKategorije, BigDecimal cijena) {
+    public StavkaRestoranCustom(Integer stavkaId, String nazivStavke, String nazivKategorije, BigDecimal cijena) {
+        this.stavkaId = stavkaId;
         this.nazivStavke = nazivStavke;
         this.nazivKategorije = nazivKategorije;
         this.cijena = cijena;
@@ -36,5 +38,13 @@ public class StavkaRestoranCustom {
 
     public void setCijena(BigDecimal cijena) {
         this.cijena = cijena;
+    }
+
+    public Integer getStavkaId() {
+        return stavkaId;
+    }
+
+    public void setStavkaId(Integer stavkaId) {
+        this.stavkaId = stavkaId;
     }
 }

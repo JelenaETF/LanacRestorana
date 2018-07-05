@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.IzmjenaStavkeSceneController">
+    <children>
+        <Label layoutX="38.0" layoutY="59.0" text="Naziv" />
+        <Label layoutX="38.0" layoutY="149.0" text="Kategorija" />
+        <Label layoutX="39.0" layoutY="102.0" text="Cijena" />
+        <TextField fx:id="nazivStavke" layoutX="106.0" layoutY="55.0" />
+        <TextField fx:id="cijenaStavke" layoutX="106.0" layoutY="98.0" />
+        <ComboBox fx:id="kategorijaStavke" layoutX="106.0" layoutY="145.0" prefWidth="150.0" />
+        <Button layoutX="104.0" layoutY="216.0" mnemonicParsing="false" onAction="#potvrdiIzmjenuStavke" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: #cccccc;" text="Dodaj" />
+    </children>
+</AnchorPane>

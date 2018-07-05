@@ -37,7 +37,7 @@ public class RadSaStavkamaSceneController implements Initializable {
         generateTable();
     }
 
-    public ObservableList<StavkaRestoranCustom> listaStavki = FXCollections.observableArrayList();
+    public static ObservableList<StavkaRestoranCustom> listaStavki = FXCollections.observableArrayList();
 
     private void generateTable(){
         listaStavki.setAll(stavkaRestoranRepositoryCustom.vratiStavkeUPonudiIzRestorana(LoginSceneController.getRestoranId()));
@@ -46,6 +46,8 @@ public class RadSaStavkamaSceneController implements Initializable {
         cijenaColumn.setCellValueFactory(new PropertyValueFactory<>("cijena"));
 
         stavkeTable.setItems(listaStavki);
+        IzmjenaStavkeSceneController.tabelaZaIzmjenu = stavkeTable;
+        DodavanjeNoveStavkeSceneController.tabelaZaDodavanje = stavkeTable;
     }
 
     @FXML
@@ -63,13 +65,38 @@ public class RadSaStavkamaSceneController implements Initializable {
     }
 
     @FXML
-    public void izmijeniStavku(){}
+    public void izmijeniStavku(){
+        if(stavkeTable.getSelectionModel().getSelectedItem() == null)
+            MessageBox.display("You must choose item to change");
+        else{
+            IzmjenaStavkeSceneController.setStavkaZaIzmjenu(stavkeTable.getSelectionModel().getSelectedItem());
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("view/IzmjenaStavkeScene.fxml"));
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
 
     @FXML
-    public void izbaciIzPonude(){}
+    public void izbaciIzPonude() {
+        if (stavkeTable.getSelectionModel().getSelectedItem() == null)
+            MessageBox.display("You must choose item to change");
+        else {
+            stavkaRestoranRepositoryCustom.izbaciStavkuIzPonude(stavkeTable.getSelectionModel().getSelectedItem().getStavkaId());
+            listaStavki.remove(stavkeTable.getSelectionModel().getSelectedItem());
+            stavkeTable.setItems(listaStavki);
+        }
+    }
 
     @FXML
-    public void pregledajSastav(){}
+    public void pregledajSastav(){
+
+    }
 
     @FXML
     public void idiNazad(){

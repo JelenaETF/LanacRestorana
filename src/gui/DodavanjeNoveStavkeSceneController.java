@@ -4,8 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import model.modelCustom.StavkaRestoranCustom;
 import repository.KategorijaStavkeRepository;
 import repository.repositoryCustom.StavkaRestoranRepositoryCustom;
 
@@ -17,6 +19,8 @@ public class DodavanjeNoveStavkeSceneController implements Initializable {
 
     private KategorijaStavkeRepository kategorijaStavkeRepository = new KategorijaStavkeRepository();
     private StavkaRestoranRepositoryCustom stavkaRestoranRepositoryCustom = new StavkaRestoranRepositoryCustom();
+
+    public static TableView<StavkaRestoranCustom> tabelaZaDodavanje;
 
     @FXML
     public TextField nazivStavke = new TextField();
@@ -38,11 +42,9 @@ public class DodavanjeNoveStavkeSceneController implements Initializable {
             String kategorija = kategorijaStavke.getSelectionModel().getSelectedItem();
             Integer idKategorije = kategorijaStavkeRepository.vratiIdKategorijeNaOsnovuNaziva(kategorija);
             BigDecimal cijena = new BigDecimal(cijenaStavke.getText());
-            int rez = stavkaRestoranRepositoryCustom.dodajNovuStavku(nazivStavke.getText(), kategorija, idKategorije,cijena);
-            if(rez != 0)
-                MessageBox.display("Stavka uspjesno dodana");
-            else
-                MessageBox.display("Problem sa dodavanjem stavke");
+            stavkaRestoranRepositoryCustom.dodajNovuStavku(nazivStavke.getText(), kategorija, idKategorije,cijena);
+            RadSaStavkamaSceneController.listaStavki.setAll(stavkaRestoranRepositoryCustom.vratiStavkeUPonudiIzRestorana(LoginSceneController.getRestoranId()));
+            tabelaZaDodavanje.setItems(RadSaStavkamaSceneController.listaStavki);
         }
     }
 }
