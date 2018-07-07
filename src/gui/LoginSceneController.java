@@ -8,13 +8,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import model.Nalog;
-import model.ZaposleniRestoran;
 import repository.NalogRepository;
 import repository.ZaposleniRestoranRepository;
 import services.Util;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 
 public class LoginSceneController {
 
@@ -45,8 +42,8 @@ public class LoginSceneController {
                         if (hashVrijednost.equals(nalog.getHashLozinke())) {
                             trenutniNalog = nalog;
 
-                            String uloga = zaposleniRestoranRepository.vratiUloguNaOsnovuZaposleniId(nalog.getZaposleniId());
                             restoranId = zaposleniRestoranRepository.vratiIdRestoranaNaOsnovuZaposleniId(nalog.getZaposleniId());
+                            String uloga = zaposleniRestoranRepository.vratiUloguNaOsnovuZaposleniId(nalog.getZaposleniId());
 
                             if(uloga != null && "Administrator".equals(uloga)){
                                 Parent root = FXMLLoader.load(getClass().getResource("view/AdminScene.fxml"));

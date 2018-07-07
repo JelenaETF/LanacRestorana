@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 
 public class ZaposleniRestoranRepository {
 
-    private static final String VRATI_ULOGU_NA_OSNOVU_ZAPOSLENI_ID = "select uloga from zaposleni_restoran where zaposleniId=?";
+    private static final String VRATI_ULOGU_NA_OSNOVU_ZAPOSLENI_ID = "select uloga from zaposleni_restoran where zaposleniId=? and datumDo is null and restoranId=?";
     private static final String VRATI_ID_TRENUTNOG_RESTORANA_NA_OSNOVU_ZAPOSLENI_ID = "select restoranId from zaposleni_restoran where zaposleniId=? and datumDo is null";
     private static final String VRATI_IME_I_PREZIME_ZAPOLENOG_U_RESOTORANU_NA_OSNOVU_ZAPOSLENI_ID="select concat(ime,\" \",prezime) from zaposleni join zaposleni_restoran using(zaposleniId) where restoranId = ? and zaposleniId=?";
 
@@ -19,6 +19,7 @@ public class ZaposleniRestoranRepository {
             Connection conn = pool.checkOut();
             PreparedStatement ps = conn.prepareStatement(VRATI_ULOGU_NA_OSNOVU_ZAPOSLENI_ID);
             ps.setInt(1, zaposleniId);
+            ps.setInt(2, LoginSceneController.getRestoranId());
             ResultSet rs = ps.executeQuery();
             String result = null;
             if(rs.next()){

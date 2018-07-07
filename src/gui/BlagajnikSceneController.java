@@ -7,8 +7,6 @@ import javafx.scene.Scene;
 
 public class BlagajnikSceneController {
 
-    @FXML
-    public void otvoriDostavu(){}
 
     @FXML
     public void otvoriIzdavanjeRacuna(){

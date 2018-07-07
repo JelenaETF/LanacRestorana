@@ -32,6 +32,8 @@ public class RadSaStavkamaSceneController implements Initializable {
     private TableColumn<String, StavkaRestoranCustom> kategorijaColumn = new TableColumn<>();
     @FXML
     private TableColumn<BigDecimal, StavkaRestoranCustom> cijenaColumn = new TableColumn<>();
+    @FXML
+    private TableColumn<Integer, StavkaRestoranCustom> idColumn = new TableColumn<>();
 
     private StavkaRestoranRepositoryCustom stavkaRestoranRepositoryCustom = new StavkaRestoranRepositoryCustom();
     private NamirnicaStavkeRepositoryCustom namirnicaStavkeRepositoryCustom = new NamirnicaStavkeRepositoryCustom();
@@ -48,6 +50,7 @@ public class RadSaStavkamaSceneController implements Initializable {
         nazivColumn.setCellValueFactory(new PropertyValueFactory<>("nazivStavke"));
         kategorijaColumn.setCellValueFactory(new PropertyValueFactory<>("nazivKategorije"));
         cijenaColumn.setCellValueFactory(new PropertyValueFactory<>("cijena"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("stavkaId"));
 
         stavkeTable.setItems(listaStavki);
         IzmjenaStavkeSceneController.tabelaZaIzmjenu = stavkeTable;

@@ -6,19 +6,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="289.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RadSaStavkamaSceneController">
+<AnchorPane prefHeight="289.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RadSaStavkamaSceneController">
    <children>
-      <TableView fx:id="stavkeTable" layoutX="14.0" layoutY="26.0" prefHeight="251.0" prefWidth="299.0">
+      <TableView fx:id="stavkeTable" layoutX="14.0" layoutY="26.0" prefHeight="251.0" prefWidth="330.0">
         <columns>
-          <TableColumn fx:id="nazivColumn" prefWidth="124.0" text="Naziv" />
-          <TableColumn fx:id="kategorijaColumn" prefWidth="101.0" text="Kategorija" />
-            <TableColumn fx:id="cijenaColumn" prefWidth="72.0" text="Cijena" />
+          <TableColumn fx:id="idColumn" prefWidth="67.0" text="Id stavke" />
+          <TableColumn fx:id="nazivColumn" prefWidth="106.0" text="Naziv" />
+            <TableColumn fx:id="kategorijaColumn" prefWidth="86.0" text="Kategorija" />
+            <TableColumn fx:id="cijenaColumn" prefWidth="75.0" text="Cijena" />
         </columns>
       </TableView>
-      <Button layoutX="327.0" layoutY="193.0" mnemonicParsing="false" onAction="#pregledajSastav" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Pregledaj sastav" />
-      <Button layoutX="327.0" layoutY="137.0" mnemonicParsing="false" onAction="#izbaciIzPonude" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Izbaci iz ponude" />
-      <Button layoutX="327.0" layoutY="81.0" mnemonicParsing="false" onAction="#izmijeniStavku" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Izmijeni" />
-      <Button layoutX="327.0" layoutY="26.0" mnemonicParsing="false" onAction="#dodajStavku" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Dodaj" />
-      <Button layoutX="327.0" layoutY="243.0" mnemonicParsing="false" onAction="#idiNazad" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Nazad" />
+      <Button layoutX="369.0" layoutY="193.0" mnemonicParsing="false" onAction="#pregledajSastav" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Pregledaj sastav" />
+      <Button layoutX="369.0" layoutY="136.0" mnemonicParsing="false" onAction="#izbaciIzPonude" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Izbaci iz ponude" />
+      <Button layoutX="369.0" layoutY="81.0" mnemonicParsing="false" onAction="#izmijeniStavku" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Izmijeni" />
+      <Button layoutX="369.0" layoutY="26.0" mnemonicParsing="false" onAction="#dodajStavku" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Dodaj" />
+      <Button layoutX="369.0" layoutY="243.0" mnemonicParsing="false" onAction="#idiNazad" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Nazad" />
    </children>
 </AnchorPane>

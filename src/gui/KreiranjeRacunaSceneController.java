@@ -44,6 +44,8 @@ public class KreiranjeRacunaSceneController implements Initializable {
     private TableColumn<String, StavkaRestoranCustom> nazivStavke = new TableColumn<>();
     @FXML
     private TableColumn<BigDecimal, StavkaRestoranCustom> cijenaStavke = new TableColumn<>();
+    @FXML
+    private TableColumn<Integer, StavkaRestoranCustom> idStavke = new TableColumn<>();
 
     @FXML
     private TableView<StavkaRacunCustom> racunTable = new TableView<>();
@@ -119,6 +121,7 @@ public class KreiranjeRacunaSceneController implements Initializable {
     private void generateStavkeRestoranTable(){
         nazivStavke.setCellValueFactory(new PropertyValueFactory<>("nazivStavke"));
         cijenaStavke.setCellValueFactory(new PropertyValueFactory<>("cijena"));
+        idStavke.setCellValueFactory(new PropertyValueFactory<>("stavkaId"));
         stavkeRestoranList.setAll(stavkaRestoranRepositoryCustom.vratiStavkeUPonudiIzRestorana(LoginSceneController.getRestoranId()));
         stavkeTable.setItems(stavkeRestoranList);
     }

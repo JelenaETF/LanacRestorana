@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="299.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PrikazZaposlenihSceneController">
+   <children>
+      <TableView fx:id="zaposleniTable" layoutX="29.0" layoutY="27.0" prefHeight="230.0" prefWidth="554.0">
+        <columns>
+          <TableColumn fx:id="jmb" prefWidth="75.0" text="JMB" />
+          <TableColumn fx:id="ime" prefWidth="75.0" text="Ime" />
+            <TableColumn fx:id="prezime" prefWidth="75.0" text="Prezime" />
+            <TableColumn fx:id="adresa" prefWidth="75.0" text="Adresa" />
+            <TableColumn fx:id="stepenStrucneSpreme" prefWidth="138.0" text="Stepen strucne spreme" />
+            <TableColumn fx:id="uloga" prefWidth="115.0" text="Uloga u restoranu" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
