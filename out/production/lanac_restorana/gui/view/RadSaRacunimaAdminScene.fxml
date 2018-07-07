@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="299.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RadSaRacunimaAdminSceneController">
+   <children>
+      <TableView fx:id="racuniTable" layoutX="29.0" layoutY="30.0" prefHeight="200.0" prefWidth="504.0">
+        <columns>
+          <TableColumn fx:id="datumIzdavanja" prefWidth="107.0" text="Datum izdavanja" />
+          <TableColumn fx:id="racunIzdao" prefWidth="89.0" text="Racun izdao" />
+            <TableColumn fx:id="vrijednostTakse" prefWidth="132.0" text="Vrijednost takse(%)" />
+            <TableColumn fx:id="placenoKarticom" prefWidth="114.0" text="Placeno karticom" />
+            <TableColumn fx:id="cijena" prefWidth="61.0" text="Cijena" />
+        </columns>
+      </TableView>
+      <Button layoutX="415.0" layoutY="250.0" mnemonicParsing="false" onAction="#pregledajStavke" text="Pregledaj stavke" />
+      <Button layoutX="29.0" layoutY="250.0" mnemonicParsing="false" onAction="#ponistiRacun" text="Ponisti racun" />
+   </children>
+</AnchorPane>

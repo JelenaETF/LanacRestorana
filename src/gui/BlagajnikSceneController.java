@@ -1,6 +1,9 @@
 package gui;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 public class BlagajnikSceneController {
 
@@ -8,7 +11,16 @@ public class BlagajnikSceneController {
     public void otvoriDostavu(){}
 
     @FXML
-    public void otvoriIzdavanjeRacuna(){}
+    public void otvoriIzdavanjeRacuna(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("view/KreiranjeRacunaScene.fxml"));
+            Scene scene = new Scene(root);
+            Main.primaryStage.setScene(scene);
+            Main.primaryStage.setTitle("Accounts creation");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void odjaviSe(){

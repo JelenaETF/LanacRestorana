@@ -47,18 +47,24 @@ public class LoginSceneController {
 
                             String uloga = zaposleniRestoranRepository.vratiUloguNaOsnovuZaposleniId(nalog.getZaposleniId());
                             restoranId = zaposleniRestoranRepository.vratiIdRestoranaNaOsnovuZaposleniId(nalog.getZaposleniId());
-                            System.out.println(restoranId);
+
                             if(uloga != null && "Administrator".equals(uloga)){
                                 Parent root = FXMLLoader.load(getClass().getResource("view/AdminScene.fxml"));
                                 Scene scene = new Scene(root);
                                 adminScene = scene;
                                 Main.primaryStage.setScene(scene);
+                                Main.primaryStage.setTitle("Admin scene");
+                                Image image = new Image(LoginSceneController.class.getResourceAsStream("view/food.png"));
+                                Main.primaryStage.getIcons().setAll(image);
                             }
                             else if(uloga != null && "Blagajnik".equals(uloga)){
                                 Parent root = FXMLLoader.load(getClass().getResource("view/BlagajnikScene.fxml"));
                                 Scene scene = new Scene(root);
                                 blagajnikScene = scene;
                                 Main.primaryStage.setScene(scene);
+                                Main.primaryStage.setTitle("User scene");
+                                Image image = new Image(LoginSceneController.class.getResourceAsStream("view/food.png"));
+                                Main.primaryStage.getIcons().setAll(image);
                             }else{
                                 MessageBox.display("Unable to recognize role!");
                             }

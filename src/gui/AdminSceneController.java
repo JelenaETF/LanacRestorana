@@ -19,7 +19,15 @@ public class AdminSceneController {
     }
 
     @FXML
-    public void otvoriNarudzbuNamirnica(){}
+    public void otvoriRadSaRacunima(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("view/RadSaRacunimaAdminScene.fxml"));
+            Scene scene = new Scene(root);
+            Main.primaryStage.setScene(scene);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void odjaviSe(){

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="325.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.KreiranjeRacunaSceneController">
+   <children>
+      <TableView fx:id="stavkeTable" layoutX="25.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="nazivStavke" prefWidth="103.0" text="Naziv" />
+          <TableColumn fx:id="cijenaStavke" prefWidth="96.0" text="Cijena" />
+        </columns>
+      </TableView>
+      <Button layoutX="246.0" layoutY="103.0" mnemonicParsing="false" onAction="#dodajNaRacun" prefHeight="27.0" prefWidth="58.0" text="Dodaj" />
+      <TableView fx:id="racunTable" layoutX="321.0" layoutY="30.0" prefHeight="200.0" prefWidth="227.0">
+        <columns>
+          <TableColumn fx:id="nazivStavkeRacun" prefWidth="75.0" text="Naziv" />
+          <TableColumn fx:id="cijenaStavkeRacun" prefWidth="75.0" text="Cijena" />
+            <TableColumn fx:id="kolicinaStavkeRacun" prefWidth="75.0" text="Kolicina" />
+        </columns>
+      </TableView>
+      <Button layoutX="246.0" layoutY="138.0" mnemonicParsing="false" onAction="#ukloniSaRacuna" prefHeight="25.0" prefWidth="58.0" text="Ukloni" />
+      <Button layoutX="456.0" layoutY="286.0" mnemonicParsing="false" onAction="#generisiRacun" text="Generisi racun" />
+      <Label layoutX="25.0" layoutY="251.0" prefHeight="17.0" prefWidth="51.0" text="Kolicina" />
+      <TextField fx:id="kolicina" layoutX="76.0" layoutY="247.0" />
+      <Button layoutX="321.0" layoutY="247.0" mnemonicParsing="false" onAction="#izmijeniKolicinu" prefHeight="25.0" prefWidth="103.0" text="Izmijeni kolicinu" />
+      <CheckBox fx:id="placanjeKarticom" layoutX="435.0" layoutY="248.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Placanje karticom" />
+   </children>
+</AnchorPane>

@@ -12,11 +12,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.modelCustom.NamirnicaStavkeCustom;
 import model.modelCustom.StavkaRestoranCustom;
+import repository.repositoryCustom.NamirnicaStavkeRepositoryCustom;
 import repository.repositoryCustom.StavkaRestoranRepositoryCustom;
 
 import java.math.BigDecimal;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class RadSaStavkamaSceneController implements Initializable {
@@ -31,6 +34,7 @@ public class RadSaStavkamaSceneController implements Initializable {
     private TableColumn<BigDecimal, StavkaRestoranCustom> cijenaColumn = new TableColumn<>();
 
     private StavkaRestoranRepositoryCustom stavkaRestoranRepositoryCustom = new StavkaRestoranRepositoryCustom();
+    private NamirnicaStavkeRepositoryCustom namirnicaStavkeRepositoryCustom = new NamirnicaStavkeRepositoryCustom();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -94,10 +98,22 @@ public class RadSaStavkamaSceneController implements Initializable {
     }
 
     @FXML
-    public void pregledajSastav(){
-
+    public void pregledajSastav() {
+        if (stavkeTable.getSelectionModel().getSelectedItem() == null)
+            MessageBox.display("You must choose item to change");
+        else {
+            NamirniceStavkeSceneController.stavkaCijeNamirniceSePrikazuju = stavkeTable.getSelectionModel().getSelectedItem();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("view/NamirniceStavkeScene.fxml"));
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
-
     @FXML
     public void idiNazad(){
         Main.primaryStage.setScene(LoginSceneController.adminScene);

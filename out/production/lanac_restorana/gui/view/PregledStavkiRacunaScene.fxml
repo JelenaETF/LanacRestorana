@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="304.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PregledStavkiRacunaSceneController">
+   <children>
+      <TableView fx:id="stavkeRacunaTable" layoutX="32.0" layoutY="37.0" prefHeight="231.0" prefWidth="278.0">
+        <columns>
+          <TableColumn fx:id="naziv" prefWidth="106.0" text="Naziv" />
+          <TableColumn fx:id="cijena" prefWidth="82.0" text="Cijena" />
+            <TableColumn fx:id="kolicina" prefWidth="88.0" text="Kolicina" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
