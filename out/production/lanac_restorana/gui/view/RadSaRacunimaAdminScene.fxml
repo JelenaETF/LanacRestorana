@@ -6,7 +6,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="299.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RadSaRacunimaAdminSceneController">
    <children>
       <TableView fx:id="racuniTable" layoutX="29.0" layoutY="30.0" prefHeight="200.0" prefWidth="504.0">
@@ -18,7 +17,8 @@
             <TableColumn fx:id="cijena" prefWidth="61.0" text="Cijena" />
         </columns>
       </TableView>
-      <Button layoutX="415.0" layoutY="250.0" mnemonicParsing="false" onAction="#pregledajStavke" text="Pregledaj stavke" />
-      <Button layoutX="29.0" layoutY="250.0" mnemonicParsing="false" onAction="#ponistiRacun" text="Ponisti racun" />
+      <Button layoutX="430.0" layoutY="250.0" mnemonicParsing="false" onAction="#pregledajStavke" text="Pregledaj stavke" />
+      <Button layoutX="230.0" layoutY="250.0" mnemonicParsing="false" onAction="#ponistiRacun" prefHeight="25.0" prefWidth="103.0" text="Ponisti racun" />
+      <Button layoutX="29.0" layoutY="250.0" mnemonicParsing="false" onAction="#idiNazad" prefHeight="25.0" prefWidth="103.0" text="Nazad" />
    </children>
 </AnchorPane>

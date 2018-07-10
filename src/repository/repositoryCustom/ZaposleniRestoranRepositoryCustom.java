@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ZaposleniRestoranRepositoryCustom {
 
-    private static final String VRATI_SVE_TRENUTNO_ZAPOSLENE_I_NJIHOVU_ULOGU_U_RESTORANU = "select z.zaposleniId, JMB, ime, prezime, adresa, stepenStrucneSpreme, uloga from zaposleni_restoran join zaposleni z using(zaposleniId) where restoranId=? and datumDo is null";
+    private static final String VRATI_SVE_TRENUTNO_ZAPOSLENE_KOJI_NISU_NA_ODSUSTVU_I_NJIHOVU_ULOGU_U_RESTORANU = "select z.zaposleniId, JMB, ime, prezime, adresa, stepenStrucneSpreme, uloga from zaposleniKojiNisuNaOdsustvu join zaposleni_restoran z using (zaposleniId) where restoranId=? and datumDo is null";
 
     public ArrayList<ZaposleniRestoranCustom> vratiSveZaposleneINjihovuUloguURestoranu(){
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -19,7 +19,7 @@ public class ZaposleniRestoranRepositoryCustom {
         ArrayList<ZaposleniRestoranCustom> zaposleni = new ArrayList<>();
         try{
             conn = pool.checkOut();
-            PreparedStatement ps = conn.prepareStatement(VRATI_SVE_TRENUTNO_ZAPOSLENE_I_NJIHOVU_ULOGU_U_RESTORANU);
+            PreparedStatement ps = conn.prepareStatement(VRATI_SVE_TRENUTNO_ZAPOSLENE_KOJI_NISU_NA_ODSUSTVU_I_NJIHOVU_ULOGU_U_RESTORANU);
             ps.setInt(1, LoginSceneController.getRestoranId());
             ResultSet rs = ps.executeQuery();
             while(rs.next())

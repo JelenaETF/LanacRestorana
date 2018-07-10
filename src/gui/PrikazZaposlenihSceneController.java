@@ -3,15 +3,18 @@ package gui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.modelCustom.NamirnicaStavkeCustom;
+import javafx.stage.Stage;
 import model.modelCustom.ZaposleniRestoranCustom;
+import repository.ZaposleniRestoranRepository;
 import repository.repositoryCustom.ZaposleniRestoranRepositoryCustom;
 
-import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -19,6 +22,7 @@ import java.util.ResourceBundle;
 public class PrikazZaposlenihSceneController implements Initializable {
 
     private ZaposleniRestoranRepositoryCustom zaposleniRestoranRepositoryCustom = new ZaposleniRestoranRepositoryCustom();
+    private ZaposleniRestoranRepository zaposleniRestoranRepository = new ZaposleniRestoranRepository();
 
     @FXML
     private TableView<ZaposleniRestoranCustom> zaposleniTable = new TableView<>();
@@ -65,5 +69,38 @@ public class PrikazZaposlenihSceneController implements Initializable {
 
     public void setZaposleniRestoranList(ObservableList<ZaposleniRestoranCustom> zaposleniRestoranList) {
         this.zaposleniRestoranBezTrenutnoPrijavljenogList = zaposleniRestoranList;
+    }
+
+    @FXML
+    public void posaljiNaOdsustvo(){
+      try{
+          if(zaposleniTable.getSelectionModel().getSelectedItem() == null){
+              MessageBox.display("You must select an item");
+          }else{
+              OdsustvoSceneController.setZaposleniId(zaposleniTable.getSelectionModel().getSelectedItem().getZaposleniId());
+              Parent root = FXMLLoader.load(getClass().getResource("view/OdsustvoScene.fxml"));
+              Stage stage = new Stage();
+              Scene scene = new Scene(root);
+              stage.setScene(scene);
+              stage.show();
+          }
+      }catch (Exception e){
+          e.printStackTrace();
+      }
+    }
+
+    @FXML
+    public void ukloniIzPoslovnice(){
+        if(zaposleniTable.getSelectionModel().getSelectedItem() == null){
+            MessageBox.display("You must select an item");
+        }else {
+            zaposleniRestoranRepository.postaviDatumPrekidaRadaUPoslovnici(zaposleniTable.getSelectionModel().getSelectedItem().getZaposleniId());
+            MessageBox.display("Successfully changed");
+        }
+    }
+
+    @FXML
+    public void idiNazad(){
+        Main.primaryStage.setScene(LoginSceneController.adminScene);
     }
 }

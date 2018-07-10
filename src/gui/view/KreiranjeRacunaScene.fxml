@@ -29,5 +29,6 @@
       <TextField fx:id="kolicina" layoutX="76.0" layoutY="247.0" />
       <Button layoutX="354.0" layoutY="247.0" mnemonicParsing="false" onAction="#izmijeniKolicinu" prefHeight="25.0" prefWidth="103.0" text="Izmijeni kolicinu" />
       <CheckBox fx:id="placanjeKarticom" layoutX="481.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Placanje karticom" />
+      <Button layoutX="25.0" layoutY="286.0" mnemonicParsing="false" onAction="#idiNazad" text="Nazad" />
    </children>
 </AnchorPane>

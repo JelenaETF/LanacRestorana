@@ -94,6 +94,11 @@ public class RadSaRacunimaAdminSceneController implements Initializable {
         }
     }
 
+    @FXML
+    public void idiNazad(){
+        Main.primaryStage.setScene(LoginSceneController.adminScene);
+    }
+
     public ObservableList<Racun> getRacuniList() {
         return racuniList;
     }

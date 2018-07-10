@@ -154,4 +154,9 @@ public class KreiranjeRacunaSceneController implements Initializable {
     private void generisiStavkuNaRacunu(StavkaRacunCustom stavka, Integer idRacuna){
       stavkaRacunRepositoryCustom.dodajNovuStavkuNaRacun(stavka.getStavkaUPonudi().getStavkaId(),idRacuna, stavka.getKolicinaKupljenog(), stavka.getCijenaKupljenog());
     }
+
+    @FXML
+    public void idiNazad(){
+        Main.primaryStage.setScene(LoginSceneController.blagajnikScene);
+    }
 }
