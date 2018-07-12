@@ -42,6 +42,18 @@ public class AdminSceneController {
     }
 
     @FXML
+    public void otvoriRadSaDobavljacima(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("view/RadSaDobavljacimaScene.fxml"));
+            Scene scene = new Scene(root);
+            Main.primaryStage.setScene(scene);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
     public void odjaviSe(){
         Main.primaryStage.setScene(Main.primaryScene);
         LoginSceneController.setTrenutniNalogNaNull();

@@ -11,12 +11,12 @@ public class Racun {
     private String placanjeKarticom;
     private Integer zaposleniId;
     private Integer taksaId;
-    private Boolean ponisten;
+    private String ponisten;
 
     private String racunIzdao;
     private BigDecimal vrijednostTakse;
 
-    public Racun(Integer racunId, Date datumIzdavanja, BigDecimal ukupnaCijena, String placanjeKarticom, Integer zaposleniId, Integer taksaId, Boolean ponisten) {
+    public Racun(Integer racunId, Date datumIzdavanja, BigDecimal ukupnaCijena, String placanjeKarticom, Integer zaposleniId, Integer taksaId, String ponisten) {
         this.racunId = racunId;
         this.datumIzdavanja = datumIzdavanja;
         this.ukupnaCijena = ukupnaCijena;
@@ -75,11 +75,11 @@ public class Racun {
         this.taksaId = taksaId;
     }
 
-    public Boolean getPonisten() {
+    public String getPonisten() {
         return ponisten;
     }
 
-    public void setPonisten(Boolean ponisten) {
+    public void setPonisten(String ponisten) {
         this.ponisten = ponisten;
     }
 

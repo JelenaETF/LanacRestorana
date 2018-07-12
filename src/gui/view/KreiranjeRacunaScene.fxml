@@ -15,7 +15,7 @@
             <TableColumn fx:id="cijenaStavke" prefWidth="57.0" text="Cijena" />
         </columns>
       </TableView>
-      <Button layoutX="275.0" layoutY="103.0" mnemonicParsing="false" onAction="#dodajNaRacun" prefHeight="27.0" prefWidth="58.0" text="Dodaj" />
+      <Button layoutX="275.0" layoutY="103.0" mnemonicParsing="false" onAction="#dodajNaRacun" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #cccccc;" text="Dodaj" />
       <TableView fx:id="racunTable" layoutX="354.0" layoutY="30.0" prefHeight="200.0" prefWidth="239.0">
         <columns>
           <TableColumn fx:id="nazivStavkeRacun" prefWidth="99.0" text="Naziv" />
@@ -23,12 +23,12 @@
             <TableColumn fx:id="kolicinaStavkeRacun" prefWidth="67.0" text="Kolicina" />
         </columns>
       </TableView>
-      <Button layoutX="275.0" layoutY="138.0" mnemonicParsing="false" onAction="#ukloniSaRacuna" prefHeight="25.0" prefWidth="58.0" text="Ukloni" />
-      <Button layoutX="501.0" layoutY="286.0" mnemonicParsing="false" onAction="#generisiRacun" text="Generisi racun" />
+      <Button layoutX="275.0" layoutY="138.0" mnemonicParsing="false" onAction="#ukloniSaRacuna" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #cccccc;" text="Ukloni" />
+      <Button layoutX="501.0" layoutY="286.0" mnemonicParsing="false" onAction="#generisiRacun" style="-fx-background-color: #cccccc;" text="Generisi racun" />
       <Label layoutX="25.0" layoutY="251.0" prefHeight="17.0" prefWidth="51.0" text="Kolicina" />
       <TextField fx:id="kolicina" layoutX="76.0" layoutY="247.0" />
-      <Button layoutX="354.0" layoutY="247.0" mnemonicParsing="false" onAction="#izmijeniKolicinu" prefHeight="25.0" prefWidth="103.0" text="Izmijeni kolicinu" />
+      <Button layoutX="354.0" layoutY="247.0" mnemonicParsing="false" onAction="#izmijeniKolicinu" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #cccccc;" text="Izmijeni kolicinu" />
       <CheckBox fx:id="placanjeKarticom" layoutX="481.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Placanje karticom" />
-      <Button layoutX="25.0" layoutY="286.0" mnemonicParsing="false" onAction="#idiNazad" text="Nazad" />
+      <Button layoutX="25.0" layoutY="286.0" mnemonicParsing="false" onAction="#idiNazad" style="-fx-background-color: #cccccc;" text="Nazad" />
    </children>
 </AnchorPane>

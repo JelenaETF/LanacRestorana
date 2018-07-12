@@ -53,7 +53,7 @@ public class IzmjenaStavkeSceneController implements Initializable {
 
             RadSaStavkamaSceneController.listaStavki.setAll(stavkaRestoranRepositoryCustom.vratiStavkeUPonudiIzRestorana(LoginSceneController.getRestoranId()));
             tabelaZaIzmjenu.setItems(RadSaStavkamaSceneController.listaStavki);
-            MessageBox.display("Item successfully changed");
+            MessageBox.display("Stavka uspjesno izmijenjena");
         }
     }
 

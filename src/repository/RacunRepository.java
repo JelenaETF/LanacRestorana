@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class RacunRepository {
 
     private static final String KREIRAJ_RACUN_I_VRATI_ID_KREIRANOG="insert into racun values(?,?,?,?,?,?,?)";
-    private static final String VRATI_SVE_RACUNE_IZ_RESTORANA_KOJI_NISU_PONISTENI="select racunId, datumIzdavanja, ukupnaCijena, placanjeKarticom, zaposleniId, taksaId from racun join zaposleni_restoran using(zaposleniId) where restoranId=? and ponisten=0";
+    private static final String VRATI_SVE_RACUNE_IZ_RESTORANA="select racunId, datumIzdavanja, ukupnaCijena, placanjeKarticom, zaposleniId, taksaId, ponisten from racun join zaposleni_restoran using(zaposleniId) where restoranId=?";
     private static final String PONISTI_RACUN_NA_OSNOVU_ID="update racun set ponisten=1 where racunId=?";
 
     public Integer kreirajRacun(Date datumIzdavanja, BigDecimal ukupnaCijena, Boolean placanjeKarticom, Integer taksaId ){
@@ -40,18 +40,19 @@ public class RacunRepository {
         return null;
     }
 
-    public ArrayList<Racun> vratiSveNeponisteneRacuneKojeSuIzdaliZaposleniIzOvogRestorana(){
+    public ArrayList<Racun> vratiSveRacuneKojeSuIzdaliZaposleniIzOvogRestorana(){
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection conn = null;
         ArrayList<Racun> racuniIzRestorana = new ArrayList<>();
         try{
             conn = pool.checkOut();
-            PreparedStatement ps = conn.prepareStatement(VRATI_SVE_RACUNE_IZ_RESTORANA_KOJI_NISU_PONISTENI);
+            PreparedStatement ps = conn.prepareStatement(VRATI_SVE_RACUNE_IZ_RESTORANA);
             ps.setInt(1, LoginSceneController.getRestoranId());
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 String placanjeKarticom = rs.getBoolean(4) ? "da" : "ne";
-                racuniIzRestorana.add(new Racun(rs.getInt(1), rs.getDate(2), rs.getBigDecimal(3), placanjeKarticom, rs.getInt(5), rs.getInt(6), false));
+                String ponisten = rs.getBoolean(7) ? "da" : "ne";
+                racuniIzRestorana.add(new Racun(rs.getInt(1), rs.getDate(2), rs.getBigDecimal(3), placanjeKarticom, rs.getInt(5), rs.getInt(6), ponisten));
             }
             pool.checkIn(conn);
             return racuniIzRestorana;

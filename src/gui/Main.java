@@ -16,7 +16,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/LoginScene.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Login form");
+        stage.setTitle("Login forma");
         Image image = new Image(LoginSceneController.class.getResourceAsStream("view/icon.png"));
         stage.getIcons().add(image);
         primaryStage = stage;

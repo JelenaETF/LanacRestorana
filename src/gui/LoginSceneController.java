@@ -32,11 +32,11 @@ public class LoginSceneController {
     public void checkLoginData(){
         try {
             if (usernameField.getText() == null || passwordField.getText() == null) {
-                MessageBox.display("Some fields are left empty!");
+                MessageBox.display("Nijedno polje ne smije ostati prazno");
             } else {
                 Nalog nalog = nalogRepository.vratiNalogZaKorisnickoIme(usernameField.getText());
                 if(nalog == null)
-                    MessageBox.display("Username or password are incorrect!");
+                    MessageBox.display("Ne postoji nalog sa unesenim kredencijalima");
                 else{
                     String hashVrijednost = Util.getHashValue(passwordField.getText());
                         if (hashVrijednost.equals(nalog.getHashLozinke())) {
@@ -63,8 +63,10 @@ public class LoginSceneController {
                                 Image image = new Image(LoginSceneController.class.getResourceAsStream("view/food.png"));
                                 Main.primaryStage.getIcons().setAll(image);
                             }else{
-                                MessageBox.display("Unable to recognize role!");
+                                MessageBox.display("Nepoznata uloga");
                             }
+                            usernameField.setText("");
+                            passwordField.setText("");
                         }
                 }
             }

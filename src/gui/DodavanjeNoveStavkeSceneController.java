@@ -37,14 +37,28 @@ public class DodavanjeNoveStavkeSceneController implements Initializable {
     @FXML
     public void potvrdiDodavanjeStavke(){
         if(kategorijaStavke.getSelectionModel().getSelectedItem() == null || cijenaStavke.getText() == null || nazivStavke.getText() == null){
-            MessageBox.display("Some fields are left empty");
+            MessageBox.display("Nijedno polje ne smije ostati prazno");
         }else{
             String kategorija = kategorijaStavke.getSelectionModel().getSelectedItem();
             Integer idKategorije = kategorijaStavkeRepository.vratiIdKategorijeNaOsnovuNaziva(kategorija);
-            BigDecimal cijena = new BigDecimal(cijenaStavke.getText());
-            stavkaRestoranRepositoryCustom.dodajNovuStavku(nazivStavke.getText(), kategorija, idKategorije,cijena);
-            RadSaStavkamaSceneController.listaStavki.setAll(stavkaRestoranRepositoryCustom.vratiStavkeUPonudiIzRestorana(LoginSceneController.getRestoranId()));
-            tabelaZaDodavanje.setItems(RadSaStavkamaSceneController.listaStavki);
+            if(regularnaCijena(cijenaStavke.getText())) {
+                BigDecimal cijena = new BigDecimal(cijenaStavke.getText());
+                stavkaRestoranRepositoryCustom.dodajNovuStavku(nazivStavke.getText(), kategorija, idKategorije, cijena);
+                RadSaStavkamaSceneController.listaStavki.setAll(stavkaRestoranRepositoryCustom.vratiStavkeUPonudiIzRestorana(LoginSceneController.getRestoranId()));
+                tabelaZaDodavanje.setItems(RadSaStavkamaSceneController.listaStavki);
+            }else
+                MessageBox.display("Unesena vrijednost nije regularna");
+        }
+    }
+
+    private static boolean regularnaCijena(String cijena){
+        try{
+            BigDecimal temp = new BigDecimal(cijena);
+            if(temp.doubleValue() < 0)
+                return false;
+            return true;
+        }catch (Exception e){
+            return false;
         }
     }
 }

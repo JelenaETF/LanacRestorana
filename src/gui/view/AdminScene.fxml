@@ -8,17 +8,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="240.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminSceneController">
+<AnchorPane prefHeight="288.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminSceneController">
    <children>
       <Button layoutX="218.0" layoutY="20.0" mnemonicParsing="false" onAction="#otvoriRadSaStavkama" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Rad sa stavkama" />
       <Button layoutX="218.0" layoutY="72.0" mnemonicParsing="false" onAction="#otvoriRadSaRacunima" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Rad sa racunima" />
-      <Button layoutX="218.0" layoutY="174.0" mnemonicParsing="false" onAction="#odjaviSe" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Odjavi se" />
-      <Separator layoutX="183.0" layoutY="20.0" orientation="VERTICAL" prefHeight="200.0" />
-      <ImageView fitHeight="143.0" fitWidth="143.0" layoutX="25.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="218.0" layoutY="220.0" mnemonicParsing="false" onAction="#odjaviSe" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Odjavi se" />
+      <Separator layoutX="183.0" layoutY="20.0" orientation="VERTICAL" prefHeight="247.0" prefWidth="0.0" />
+      <ImageView fitHeight="143.0" fitWidth="143.0" layoutX="26.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/Jelena/Desktop/Jelena/Faks/III%20godina/VI%20semestar/BAZE%20PODATAKA/lanac_restorana/src/gui/view/restaurant.png" />
          </image>
       </ImageView>
       <Button layoutX="218.0" layoutY="121.0" mnemonicParsing="false" onAction="#otvoriRadSaZaposlenima" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Rad sa zaposlenima" />
+      <Button layoutX="218.0" layoutY="172.0" mnemonicParsing="false" onAction="#otvoriRadSaDobavljacima" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #cccccc;" text="Rad sa dobavljacima" />
    </children>
 </AnchorPane>

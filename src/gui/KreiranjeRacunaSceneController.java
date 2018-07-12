@@ -70,7 +70,7 @@ public class KreiranjeRacunaSceneController implements Initializable {
     @FXML
     public void dodajNaRacun(){
         if(stavkeTable.getSelectionModel().getSelectedItem() == null) {
-            MessageBox.display("You must choose an item to add");
+            MessageBox.display("Morate odabrati stavku koju zelite dodati na racun");
         }
         else {
             StavkaRestoranCustom stavkaZaDodavanje = stavkeTable.getSelectionModel().getSelectedItem();
@@ -81,7 +81,7 @@ public class KreiranjeRacunaSceneController implements Initializable {
                 }
             }
             if(postojiNaRacunu)
-                MessageBox.display("Item already added");
+                MessageBox.display("Stavka vec postoji na racunu");
             else {
                 stavkeRacunList.add(new StavkaRacunCustom(stavkaZaDodavanje, Integer.valueOf(kolicina.getText())));
                 racunTable.setItems(stavkeRacunList);
@@ -92,7 +92,7 @@ public class KreiranjeRacunaSceneController implements Initializable {
     @FXML
     public void ukloniSaRacuna(){
         if(racunTable.getSelectionModel().getSelectedItem() == null) {
-            MessageBox.display("You must choose an item to remove");
+            MessageBox.display("Morate odabrati stavku koju zelite ukloniti sa racuna");
         }else{
             stavkeRacunList.remove(racunTable.getSelectionModel().getSelectedItem());
             racunTable.setItems(stavkeRacunList);
@@ -102,7 +102,7 @@ public class KreiranjeRacunaSceneController implements Initializable {
     @FXML
     public void izmijeniKolicinu(){
        if(racunTable.getSelectionModel().getSelectedItem() == null)
-           MessageBox.display("You must select an item to change");
+           MessageBox.display("Morate odabrati stavku ciju kolicinu mijenjate");
        else{
             IzmjenaKolicineNaRacunuSceneController.setStavkaZaIzmjenu(racunTable.getSelectionModel().getSelectedItem());
             IzmjenaKolicineNaRacunuSceneController.setTabelaZaIzmjenu(racunTable);
@@ -144,7 +144,7 @@ public class KreiranjeRacunaSceneController implements Initializable {
         for(int i= 0; i<stavkeRacunList.size(); i++)
            generisiStavkuNaRacunu(stavkeRacunList.get(i), idKreiranogRacuna);
 
-        MessageBox.display("Successfully generated receipt");
+        MessageBox.display("Uspjesno generisan racun");
         stavkeRacunList.removeAll(stavkeRacunList);
         racunTable.refresh();
         racunTable.setItems(stavkeRacunList);

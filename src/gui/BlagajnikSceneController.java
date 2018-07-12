@@ -14,7 +14,7 @@ public class BlagajnikSceneController {
             Parent root = FXMLLoader.load(getClass().getResource("view/KreiranjeRacunaScene.fxml"));
             Scene scene = new Scene(root);
             Main.primaryStage.setScene(scene);
-            Main.primaryStage.setTitle("Accounts creation");
+            Main.primaryStage.setTitle("Kreiranje racuna");
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -6,11 +6,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="141.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.IzmjenaKolicineNaRacunuSceneController">
    <children>
       <Label layoutX="38.0" layoutY="41.0" prefHeight="17.0" prefWidth="81.0" text="Nova kolicina" />
       <TextField fx:id="novaKolicina" layoutX="119.0" layoutY="37.0" prefHeight="25.0" prefWidth="120.0" />
-      <Button layoutX="99.0" layoutY="95.0" mnemonicParsing="false" onAction="#potvrdiIzmjenuKolicine" text="Potvrdi izmjenu" />
+      <Button layoutX="99.0" layoutY="95.0" mnemonicParsing="false" onAction="#potvrdiIzmjenuKolicine" style="-fx-background-color: #cccccc;" text="Potvrdi izmjenu" />
    </children>
 </AnchorPane>

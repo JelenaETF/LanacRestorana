@@ -18,9 +18,9 @@
             <TableColumn fx:id="uloga" prefWidth="115.0" text="Uloga u restoranu" />
         </columns>
       </TableView>
-      <Button layoutX="482.0" layoutY="276.0" mnemonicParsing="false" onAction="#posaljiNaOdsustvo" text="Kreiraj odsustvo" />
-      <Button layoutX="227.0" layoutY="276.0" mnemonicParsing="false" onAction="#ukloniIzPoslovnice" prefHeight="25.0" prefWidth="62.0" text="Potvrdi" />
-      <Button layoutX="29.0" layoutY="316.0" mnemonicParsing="false" onAction="#idiNazad" text="Nazad" />
+      <Button layoutX="482.0" layoutY="276.0" mnemonicParsing="false" onAction="#posaljiNaOdsustvo" style="-fx-background-color: #cccccc;" text="Kreiraj odsustvo" />
+      <Button layoutX="227.0" layoutY="276.0" mnemonicParsing="false" onAction="#ukloniIzPoslovnice" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #cccccc;" text="Potvrdi" />
+      <Button layoutX="29.0" layoutY="316.0" mnemonicParsing="false" onAction="#idiNazad" style="-fx-background-color: #cccccc;" text="Nazad" />
       <Label layoutX="29.0" layoutY="280.0" text="Oznaci prestanak rada u poslovnici" />
    </children>
 </AnchorPane>

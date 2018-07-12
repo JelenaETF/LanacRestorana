@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="223.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RadSaDobavljacimaSceneController">
+   <children>
+      <TableView fx:id="dobavljaciTable" layoutX="22.0" layoutY="24.0" prefHeight="171.0" prefWidth="380.0">
+        <columns>
+          <TableColumn fx:id="JIB" prefWidth="119.0" text="JIB firme za dostavu" />
+          <TableColumn fx:id="telefon" prefWidth="109.0" text="Kontakt telefon" />
+            <TableColumn fx:id="adresa" prefWidth="151.0" text="Adresa firme " />
+        </columns>
+      </TableView>
+      <Button layoutX="415.0" layoutY="24.0" mnemonicParsing="false" onAction="#dodajDobavljaca" prefHeight="32.0" prefWidth="125.0" style="-fx-background-color: #cccccc;" text="Dodaj" />
+      <Button layoutX="415.0" layoutY="68.0" mnemonicParsing="false" onAction="#izmijeniDobavljaca" prefHeight="32.0" prefWidth="125.0" style="-fx-background-color: #cccccc;" text="Izmijeni" />
+      <Button layoutX="415.0" layoutY="115.0" mnemonicParsing="false" onAction="#ukloniDobavljaca" prefHeight="32.0" prefWidth="125.0" style="-fx-background-color: #cccccc;" text="Ukloni" />
+      <Button layoutX="415.0" layoutY="162.0" mnemonicParsing="false" onAction="#idiNazad" prefHeight="32.0" prefWidth="125.0" style="-fx-background-color: #cccccc;" text="Nazad" />
+   </children>
+</AnchorPane>

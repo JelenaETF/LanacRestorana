@@ -39,7 +39,7 @@ public class PrikazZaposlenihSceneController implements Initializable {
     @FXML
     private TableColumn<String, ZaposleniRestoranCustom> uloga = new TableColumn<>();
 
-    private ObservableList<ZaposleniRestoranCustom> zaposleniRestoranBezTrenutnoPrijavljenogList = FXCollections.observableArrayList();
+    private static ObservableList<ZaposleniRestoranCustom> zaposleniRestoranBezTrenutnoPrijavljenogList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -75,9 +75,10 @@ public class PrikazZaposlenihSceneController implements Initializable {
     public void posaljiNaOdsustvo(){
       try{
           if(zaposleniTable.getSelectionModel().getSelectedItem() == null){
-              MessageBox.display("You must select an item");
+              MessageBox.display("Morate odabrati zaposlenog kojeg saljete na odsustvo");
           }else{
               OdsustvoSceneController.setZaposleniId(zaposleniTable.getSelectionModel().getSelectedItem().getZaposleniId());
+              OdsustvoSceneController.setZaposleniTable(zaposleniTable);
               Parent root = FXMLLoader.load(getClass().getResource("view/OdsustvoScene.fxml"));
               Stage stage = new Stage();
               Scene scene = new Scene(root);
@@ -92,15 +93,23 @@ public class PrikazZaposlenihSceneController implements Initializable {
     @FXML
     public void ukloniIzPoslovnice(){
         if(zaposleniTable.getSelectionModel().getSelectedItem() == null){
-            MessageBox.display("You must select an item");
+            MessageBox.display("Morate odabrati zaposlenog");
         }else {
             zaposleniRestoranRepository.postaviDatumPrekidaRadaUPoslovnici(zaposleniTable.getSelectionModel().getSelectedItem().getZaposleniId());
-            MessageBox.display("Successfully changed");
+            MessageBox.display("Uspjesno uklonjeno");
         }
     }
 
     @FXML
     public void idiNazad(){
         Main.primaryStage.setScene(LoginSceneController.adminScene);
+    }
+
+    public static ObservableList<ZaposleniRestoranCustom> getZaposleniRestoranBezTrenutnoPrijavljenogList() {
+        return zaposleniRestoranBezTrenutnoPrijavljenogList;
+    }
+
+    public static void setZaposleniRestoranBezTrenutnoPrijavljenogList(ObservableList<ZaposleniRestoranCustom> zaposleniRestoranBezTrenutnoPrijavljenogList) {
+        PrikazZaposlenihSceneController.zaposleniRestoranBezTrenutnoPrijavljenogList = zaposleniRestoranBezTrenutnoPrijavljenogList;
     }
 }

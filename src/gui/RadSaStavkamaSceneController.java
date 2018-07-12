@@ -74,7 +74,7 @@ public class RadSaStavkamaSceneController implements Initializable {
     @FXML
     public void izmijeniStavku(){
         if(stavkeTable.getSelectionModel().getSelectedItem() == null)
-            MessageBox.display("You must choose item to change");
+            MessageBox.display("Morate odabrati stavku koju zelite izmijeniti");
         else{
             IzmjenaStavkeSceneController.setStavkaZaIzmjenu(stavkeTable.getSelectionModel().getSelectedItem());
             try {
@@ -92,7 +92,7 @@ public class RadSaStavkamaSceneController implements Initializable {
     @FXML
     public void izbaciIzPonude() {
         if (stavkeTable.getSelectionModel().getSelectedItem() == null)
-            MessageBox.display("You must choose item to change");
+            MessageBox.display("Morate izabrati stavku koju izbacujete iz ponude");
         else {
             stavkaRestoranRepositoryCustom.izbaciStavkuIzPonude(stavkeTable.getSelectionModel().getSelectedItem().getStavkaId());
             listaStavki.remove(stavkeTable.getSelectionModel().getSelectedItem());
@@ -103,7 +103,7 @@ public class RadSaStavkamaSceneController implements Initializable {
     @FXML
     public void pregledajSastav() {
         if (stavkeTable.getSelectionModel().getSelectedItem() == null)
-            MessageBox.display("You must choose item to change");
+            MessageBox.display("Morate izabrati stavku ciji sastav zelite pregledati");
         else {
             NamirniceStavkeSceneController.stavkaCijeNamirniceSePrikazuju = stavkeTable.getSelectionModel().getSelectedItem();
             try {

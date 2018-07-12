@@ -40,6 +40,8 @@ public class RadSaRacunimaAdminSceneController implements Initializable {
     public TableColumn<String, Racun> placenoKarticom = new TableColumn<>();
     @FXML
     public TableColumn<BigDecimal, Racun> cijena = new TableColumn<>();
+    @FXML
+    public TableColumn<String, Racun> ponisten = new TableColumn<>();
 
     private ObservableList<Racun> racuniList = FXCollections.observableArrayList();
 
@@ -54,8 +56,9 @@ public class RadSaRacunimaAdminSceneController implements Initializable {
         vrijednostTakse.setCellValueFactory(new PropertyValueFactory<>("vrijednostTakse"));
         placenoKarticom.setCellValueFactory(new PropertyValueFactory<>("placanjeKarticom"));
         cijena.setCellValueFactory(new PropertyValueFactory<>("ukupnaCijena"));
+        ponisten.setCellValueFactory(new PropertyValueFactory<>("ponisten"));
 
-        racuniList.setAll(racunRepository.vratiSveNeponisteneRacuneKojeSuIzdaliZaposleniIzOvogRestorana());
+        racuniList.setAll(racunRepository.vratiSveRacuneKojeSuIzdaliZaposleniIzOvogRestorana());
         for(Racun r : racuniList) {
            r.setRacunIzdao(zaposleniRestoranRepository.vratiImeIPrezimeZapolenogUResotoranuNaOsnovuZaposleniId(r.getZaposleniId()));
            r.setVrijednostTakse(taksaRepository.vratiTrenutnuVrijednostTakse(r.getTaksaId()));
@@ -66,20 +69,21 @@ public class RadSaRacunimaAdminSceneController implements Initializable {
     @FXML
     public void ponistiRacun(){
         if(racuniTable.getSelectionModel().getSelectedItem() == null){
-            MessageBox.display("You must choose a receipt to cancel");
+            MessageBox.display("Odaberite racun koji zelite ponistiti");
+        }else if("da".equals(racuniTable.getSelectionModel().getSelectedItem().getPonisten())){
+            MessageBox.display("Racun vec ponisten");
         }else{
            racunRepository.ponistiRacun(racuniTable.getSelectionModel().getSelectedItem().getRacunId());
-           MessageBox.display("Receipt removed");
-           racuniList.remove(racuniTable.getSelectionModel().getSelectedItem());
+           racuniTable.getSelectionModel().getSelectedItem().setPonisten("da");
            racuniTable.refresh();
-           racuniTable.setItems(racuniList);
+           MessageBox.display("Racun uspjesno ponisten");
         }
     }
 
     @FXML
     public void pregledajStavke(){
         if(racuniTable.getSelectionModel().getSelectedItem() == null){
-            MessageBox.display("You must choose a receipt");
+            MessageBox.display("Morate odabrati racun");
         }else{
             try {
                 PregledStavkiRacunaSceneController.setRacunId(racuniTable.getSelectionModel().getSelectedItem().getRacunId());

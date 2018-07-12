@@ -12,7 +12,7 @@ public class ZaposleniOdsustvoRepository {
 
     private static final String KREIRAJ_ODSUSTVO_ZA_ZAPOSLENOG="insert into zaposleni_odsustvo values(?,?,?,?)";
 
-    public void kreirajOdsustvoZaZaposlenog(Integer zaposleniId, Date datumOd, Date datumDo){
+    public boolean kreirajOdsustvoZaZaposlenog(Integer zaposleniId, Date datumOd, Date datumDo){
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection conn = null;
         try{
@@ -24,8 +24,10 @@ public class ZaposleniOdsustvoRepository {
             ps.setInt(4, 0);
             ps.executeUpdate();
             pool.checkIn(conn);
+            return true;
         }catch (SQLException e){
             MessageBox.display(e.getMessage());
+            return false;
         }
 
     }
