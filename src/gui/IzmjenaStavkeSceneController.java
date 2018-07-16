@@ -32,6 +32,7 @@ public class IzmjenaStavkeSceneController implements Initializable {
        nazivStavke.setText(stavkaZaIzmjenu.getNazivStavke());
        cijenaStavke.setText(stavkaZaIzmjenu.getCijena().toString());
        kategorijaStavke.getItems().setAll(kategorijaStavkeRepository.vratiSveKategorije());
+       kategorijaStavke.setValue(stavkaZaIzmjenu.getNazivKategorije());
     }
 
 

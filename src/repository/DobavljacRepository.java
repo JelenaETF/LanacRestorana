@@ -33,25 +33,28 @@ public class DobavljacRepository {
         return dobavljaci;
     }
 
-    public boolean dodajDobavljaca(Dobavljac dobavljac){
+    public int dodajDobavljaca(Dobavljac dobavljac){
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection conn = null;
         try{
             conn = pool.checkOut();
-            PreparedStatement ps = conn.prepareStatement(DODAJ_DOBAVLJACA_AKO_NE_POSTOJI_SA_DATIM_JIB);
+            PreparedStatement ps = conn.prepareStatement(DODAJ_DOBAVLJACA_AKO_NE_POSTOJI_SA_DATIM_JIB, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, 0);
             ps.setString(2, dobavljac.getJIB());
             ps.setString(3, dobavljac.getTelefon());
             ps.setString(4, dobavljac.getAdresa());
-            int rez = ps.executeUpdate();
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            int rez = 0;
+            if(rs.next()){
+            rez = rs.getInt(1);
+            }
             pool.checkIn(conn);
-            if(rez > 0)
-                return true;
+            return rez;
         }catch (SQLException e){
             MessageBox.display(e.getMessage());
-            return false;
+            return 0;
         }
-        return false;
     }
 
     public boolean izmijeniDobavljaca(Integer id, String noviJIB, String noviTelefon, String novaAdresa) {

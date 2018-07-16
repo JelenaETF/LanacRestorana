@@ -46,6 +46,7 @@ public class DodavanjeNoveStavkeSceneController implements Initializable {
                 stavkaRestoranRepositoryCustom.dodajNovuStavku(nazivStavke.getText(), kategorija, idKategorije, cijena);
                 RadSaStavkamaSceneController.listaStavki.setAll(stavkaRestoranRepositoryCustom.vratiStavkeUPonudiIzRestorana(LoginSceneController.getRestoranId()));
                 tabelaZaDodavanje.setItems(RadSaStavkamaSceneController.listaStavki);
+                MessageBox.display("Uspjesno dodana stavka");
             }else
                 MessageBox.display("Unesena vrijednost nije regularna");
         }

@@ -21,8 +21,10 @@ public class DodavanjeDobavljacaSceneController {
     @FXML
     public void potvrdiDodavanje(){
         Dobavljac dobavljac = new Dobavljac(0, JIB.getText(), telefon.getText(), adresa.getText());
-        if(dobavljacRepository.dodajDobavljaca(dobavljac)){
+        int id = 0;
+        if((id = dobavljacRepository.dodajDobavljaca(dobavljac)) > 0){
             MessageBox.display("Uspjesno dodan dobavljac");
+            dobavljac.setDobavljacId(id);
             RadSaDobavljacimaSceneController.dobavljaciList.add(dobavljac);
             tabelaZaDodavanje.refresh();
             tabelaZaDodavanje.setItems(RadSaDobavljacimaSceneController.dobavljaciList);
